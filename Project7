@@ -1,0 +1,513 @@
+import java.text.DecimalFormat;
+
+     /**
+   *A proimport java.text.DecimalFormat;
+
+     /**
+   *A program to define dodecachedron objects.
+   *
+   *Project 7
+   *@author Tao Guo
+   *@version 3/27/2017
+   */
+
+public class Dodecahedron {
+      // instance variables
+   private String label = "";
+   private String color = "";
+   private double edge = 0;
+   private static int count = 0;
+
+      // constructor
+      /**
+       * @param labelIn to label.
+       * @param colorIn to color.
+       * @param edgeIn to edge.
+       */
+   public Dodecahedron(String labelIn, String colorIn, double edgeIn) {
+      label = labelIn;
+      color = colorIn;
+      edge = edgeIn;
+      count++;
+   }
+      // methods
+      /**
+       * @return labelIn to label.
+       */
+   public String getLabel() 
+   {
+      return label;  
+   }     
+      /**
+       * @return colorIn to color.
+       */
+   public String getColor()
+   {
+      return color;
+   }
+      /**
+       * @return edgeIn to edge.
+       */
+   public double getEdge()
+   {
+      return edge;
+   }
+      /**
+       * @param labelIn to replace old label.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setLabel(String labelIn) 
+   {
+      if (labelIn == null) {
+         
+         return false;
+      }
+      else {
+         label = labelIn.trim();
+         return true;
+      }
+   }
+      /**
+       * @param colorIn to replace old color.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setColor(String colorIn)
+   { 
+      if (colorIn == null) {
+         
+         return false;
+      }
+      else {
+         color = colorIn.trim();
+         return true;
+      }
+   }
+      /**
+       * @param edgeIn to replace old edge.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setEdge(double edgeIn)
+   {
+      if (edgeIn <= 0) {
+         
+         return false;
+      }  
+      else {
+         edge = edgeIn;
+      
+         return true;
+      }
+   }
+   /**
+    * @return count.
+    */
+   public static int getCount() {
+      return count;
+     
+   }
+   /**
+    * reset the count.
+    */
+   public static void resetCount() {
+      count = 0;
+   }
+   /**
+    * @param obj to evaluate.
+    * @return true if it is dodecahedron.
+    */
+   public boolean equals(Object obj) {
+      if (!(obj instanceof Dodecahedron)) {
+         return false;
+      }
+      else {
+         Dodecahedron d = (Dodecahedron) obj;
+         return (label.equalsIgnoreCase(d.getLabel())
+                  && color.equalsIgnoreCase(d.getColor())
+                  && Math.abs(edge - d.getEdge()) < .000001);
+      }
+      
+      
+   }
+   /**
+    * @return hash.
+    */
+   public int hashCode() {
+      int hash = 0;
+      return hash;
+      
+   }
+                
+      /**
+       * @return serfaceArea.
+       */
+   public double surfaceArea() 
+   {
+      double a = edge;
+      double x = 10 * Math.sqrt(5);
+      double y = Math.sqrt(25 + x);
+      double z = Math.pow(a, 2);
+      double sa = 3 * y * z;
+   
+      return sa;
+   }
+      /**
+       * @return volume.
+       */
+   public double volume()
+   {
+      double a = edge;
+      double b = 7 * Math.sqrt(5);
+      double c = Math.pow(a, 3);
+      double d = (15 + b) / 4;
+      double v = d * c;
+   
+      return v;
+   }  
+      /**
+       * @return surfaceToVolumeRatio.
+       */
+   public double surfaceToVolumeRatio()
+   {
+      double surfaceToVolumeRatio = surfaceArea() / volume();
+       
+      return surfaceToVolumeRatio;
+   }
+       /**
+        * @return ouput
+        */
+   public String toString()
+   {
+      DecimalFormat dFmt = new DecimalFormat("#,##0.0##");
+      String output = "Dodecahedron " + "\"" + label + "\""
+         + " is " + "\"" + color + "\"" + " with 30 edges of length " 
+         + edge + " units.\n\t" + "surface area = " + dFmt.format(surfaceArea())
+         + " square units\n\t" + "volume = " + dFmt.format(volume())
+         + " cubic units\n\t" + "surface/volume ratio = "
+         + dFmt.format(surfaceToVolumeRatio());
+      return output;
+   }
+}    
+         
+   
+   
+  
+      
+
+  
+       
+     
+gram to define dodecachedron objects.
+   *
+   *Project 7
+   *@author Tao Guo
+   *@version 3/27/2017
+   */
+
+public class Dodecahedron {
+      // instance variables
+   private String label = "";
+   private String color = "";
+   private double edge = 0;
+   private static int count = 0;
+
+      // constructor
+      /**
+       * @param labelIn to label.
+       * @param colorIn to color.
+       * @param edgeIn to edge.
+       */
+   public Dodecahedron(String labelIn, String colorIn, double edgeIn) {
+      label = labelIn;
+      color = colorIn;
+      edge = edgeIn;
+      count++;
+   }
+      // methods
+      /**
+       * @return labelIn to label.
+       */
+   public String getLabel() 
+   {
+      return label;  
+   }     
+      /**
+       * @return colorIn to color.
+       */
+   public String getColor()
+   {
+      return color;
+   }
+      /**
+       * @return edgeIn to edge.
+       */
+   public double getEdge()
+   {
+      return edge;
+   }
+      /**
+       * @param labelIn to replace old label.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setLabel(String labelIn) 
+   {
+      if (labelIn == null) {
+         
+         return false;
+      }
+      else {
+         label = labelIn.trim();
+         return true;
+      }
+   }
+      /**
+       * @param colorIn to replace old color.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setColor(String colorIn)
+   { 
+      if (colorIn == null) {
+         
+         return false;
+      }
+      else {
+         color = colorIn.trim();
+         return true;
+      }
+   }
+      /**
+       * @param edgeIn to replace old edge.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setEdge(double edgeIn)
+   {
+      if (edgeIn <= 0) {
+         
+         return false;
+      }  
+      else {
+         edge = edgeIn;
+      
+         return true;
+      }
+   }
+   /**
+    * @return count.
+    */
+   public static int getCount() {
+      return count;
+     
+   }
+   /**
+    * reset the count.
+    */
+   public static void resetCount() {
+      count = 0;
+   }
+   /**
+    * @param obj to evaluate.
+    * @return true if it is dodecahedron.
+    */
+   public boolean equals(Object obj) {
+      if (!(obj instanceof Dodecahedron)) {
+         return false;
+      }
+      else {
+         Dodecahedron d = (Dodecahedron) obj;
+         return (label.equalsIgnoreCase(d.getLabel())
+                  && color.equalsIgnoreCase(d.getColor())
+                  && Math.abs(edge - d.getEdge()) < .000001);
+      }
+      
+      
+   }
+   /**
+    * @return hash.
+    */
+   public int hashCode() {
+      int hash = 0;
+      return hash;
+      
+   }
+                
+      /**
+       * @return serfaceArea.
+       */
+   public double surfaceArea() 
+   {
+      double a = edge;
+      double x = 10 * Math.sqrt(5);
+      double y = Math.sqrt(25 + x);
+      double z = Math.pow(a, 2);
+      double sa = 3 * y * z;
+   
+      return sa;
+   }
+      /**
+       * @return volume.
+       */
+   public double volume()
+   {
+      double a = edge;
+      double b = 7 * Math.sqrt(5);
+      double c = Math.pow(a, 3);
+      double d = (15 + b) / 4;
+      double v = d * c;
+   
+      return v;
+   }  
+      /**
+       * @return surfaceToVolumeRatio.
+       */
+   public double surfaceToVolumeRatio()
+   {
+      double surfaceToVolumeRatio = surfaceArea() / volume();
+       
+      return surfaceToVolumeRatio;
+   }
+       /**
+        * @return ouput
+        */
+   public String toString()
+   {
+      DecimalFormat dFmt = new DecimalFormat("#,##0.0##");
+      String output = "Dodecahedron " + "\"" + label + "\""
+         + " is " + "\"" + color + "\"" + " with 30 edges of length " 
+         + edge + " units.\n\t" + "surface area = " + dFmt.format(surfaceArea())
+         + " square units\n\t" + "volume = " + dFmt.format(volume())
+         + " cubic units\n\t" + "surface/volume ratio = "
+         + dFmt.format(surfaceToVolumeRatio());
+      return output;
+   }
+}    
+         
+   
+   
+  
+      
+
+  import org.junit.Assert;
+//import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.Test;
+
+/**
+ * Test Dodecahedron Program.
+ */
+public class DodecahedronTest {
+
+
+   /** Fixture initialization (common initialization
+    *  for all tests). **/
+   @Before public void setUp() {
+   }
+
+
+   /** A test that always fails. **/
+   @Test public void gettersTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      Assert.assertEquals("Small Example", d.getLabel());
+      Assert.assertEquals("blue", d.getColor());
+      Assert.assertEquals(0.25, d.getEdge(), 0.01);
+      
+   }
+   /** @Test setters. **/
+   @Test public void settersTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      d.setLabel("Small Example");
+      d.setColor("blue");
+      d.setEdge(0.25);
+      Assert.assertEquals("Small Example", d.getLabel());
+      Assert.assertEquals("blue", d.getColor());
+      Assert.assertEquals(0.25, d.getEdge(), 0.01);
+      
+   }
+
+   /** @Test settersFalse. **/
+   @Test public void settersFalseTest() {
+      Dodecahedron d = new Dodecahedron(null, null, -1);
+      d.setLabel(null);
+      d.setColor(null);
+      d.setEdge(-1);
+      Assert.assertEquals(" ", d.getLabel());
+      Assert.assertEquals(" ", d.getColor());
+      Assert.assertEquals(0.0, d.getEdge(), 0.01);
+      
+   }
+   /** @Test area. **/
+   @Test public void areaTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      Assert.assertEquals(1.29, d.surfaceArea(), 0.01);
+      
+   }
+   /** @Test volume. **/ 
+   @Test public void volumeTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      Assert.assertEquals(0.12, d.volume(), 0.01);
+      
+   }
+   /** @Test ratio. **/
+   @Test public void ratioTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      Assert.assertEquals(10.777, d.surfaceToVolumeRatio(), 0.001);
+      
+   }
+   /** @Test count. **/
+   @Test public void countTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      d.resetCount();
+      Dodecahedron d1 = new Dodecahedron("Small Example", "blue", 0.25);
+   
+      Assert.assertEquals(1, d1.getCount());
+               
+   }
+   /** @Test hashCode. **/
+   @Test public void hashCodeTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      Assert.assertEquals(0, d.hashCode());
+      
+   }
+   /** @Test equals. **/
+   @Test public void equalsTest() {
+      Dodecahedron d1 = new Dodecahedron("Small Example", "blue", 0.25);
+      Dodecahedron d2 = new Dodecahedron("Small Example", "blue", 0.25);
+         
+      Assert.assertEquals("equals test", true, d1.equals(d2));
+      d2 = new Dodecahedron("Example", "blue", 0.25);
+         
+      Assert.assertEquals("equals false test", false, d1.equals(d2));
+      d2 = new Dodecahedron("Small Example", "grey", 0.25);
+         
+      Assert.assertEquals("equals false test", false, d1.equals(d2));
+      d2 = new Dodecahedron("Small Example", "blue", 0.15);
+         
+      Assert.assertEquals("equals false test", false, d1.equals(d2));
+   
+      Assert.assertEquals("equals false test", false, d1.equals("obj"));
+      Assert.assertEquals("equals false test", false, d1.equals("obj"));
+      Assert.assertEquals("equals false test", false, d1.equals("obj"));
+         
+      Assert.assertEquals("equals false test", 0, d1.hashCode());
+   
+   }
+   /** @Test toString. **/ 
+   @Test public void toStringTest() {
+      Dodecahedron d = new Dodecahedron("Small Example", "blue", 0.25);
+      Assert.assertEquals("toString test", true,
+              d.toString().contains("Dodecahedron \"Small Example\""));
+      
+   }
+
+
+
+
+
+
+
+
+
+
+
+}
+
+       
+     
