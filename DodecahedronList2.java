@@ -146,11 +146,6 @@ public class DodecahedronList2 {
      * @return numberOfDodecahedrons.
      */
    
-   public int numberOfDodecahedrons()
-   {
-      return numberOfDodecahedrons;
-   }
-
    
    
    

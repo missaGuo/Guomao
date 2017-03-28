@@ -1,0 +1,195 @@
+import java.text.DecimalFormat;
+
+     /**
+   *A program to define dodecachedron objects.
+   *
+   *Project 7
+   *@author Tao Guo
+   *@version 3/27/2017
+   */
+
+public class Dodecahedron {
+      // instance variables
+   private String label = "";
+   private String color = "";
+   private double edge = 0;
+   private static int count = 0;
+
+      // constructor
+      /**
+       * @param labelIn to label.
+       * @param colorIn to color.
+       * @param edgeIn to edge.
+       */
+   public Dodecahedron(String labelIn, String colorIn, double edgeIn) {
+      label = labelIn;
+      color = colorIn;
+      edge = edgeIn;
+      count++;
+   }
+      // methods
+      /**
+       * @return labelIn to label.
+       */
+   public String getLabel() 
+   {
+      return label;  
+   }     
+      /**
+       * @return colorIn to color.
+       */
+   public String getColor()
+   {
+      return color;
+   }
+      /**
+       * @return edgeIn to edge.
+       */
+   public double getEdge()
+   {
+      return edge;
+   }
+      /**
+       * @param labelIn to replace old label.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setLabel(String labelIn) 
+   {
+      if (labelIn == null) {
+         
+         return false;
+      }
+      else {
+         label = labelIn.trim();
+         return true;
+      }
+   }
+      /**
+       * @param colorIn to replace old color.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setColor(String colorIn)
+   { 
+      if (colorIn == null) {
+         
+         return false;
+      }
+      else {
+         color = colorIn.trim();
+         return true;
+      }
+   }
+      /**
+       * @param edgeIn to replace old edge.
+       * @return true if applied, otherwise false.
+       */
+   public boolean setEdge(double edgeIn)
+   {
+      if (edgeIn <= 0) {
+         
+         return false;
+      }  
+      else {
+         edge = edgeIn;
+      
+         return true;
+      }
+   }
+   /**
+    * @return count.
+    */
+   public static int getCount() {
+      return count;
+     
+   }
+   /**
+    * reset the count.
+    */
+   public static void resetCount() {
+      count = 0;
+   }
+   /**
+    * @param obj to evaluate.
+    * @return true if it is dodecahedron.
+    */
+   public boolean equals(Object obj) {
+      if (!(obj instanceof Dodecahedron)) {
+         return false;
+      }
+      else {
+         Dodecahedron d = (Dodecahedron) obj;
+         return (label.equalsIgnoreCase(d.getLabel())
+                  && color.equalsIgnoreCase(d.getColor())
+                  && Math.abs(edge - d.getEdge()) < .000001);
+      }
+      
+      
+   }
+   /**
+    * @return hash.
+    */
+   public int hashCode() {
+      int hash = 0;
+      return hash;
+      
+   }
+                
+      /**
+       * @return serfaceArea.
+       */
+   public double surfaceArea() 
+   {
+      double a = edge;
+      double x = 10 * Math.sqrt(5);
+      double y = Math.sqrt(25 + x);
+      double z = Math.pow(a, 2);
+      double sa = 3 * y * z;
+   
+      return sa;
+   }
+      /**
+       * @return volume.
+       */
+   public double volume()
+   {
+      double a = edge;
+      double b = 7 * Math.sqrt(5);
+      double c = Math.pow(a, 3);
+      double d = (15 + b) / 4;
+      double v = d * c;
+   
+      return v;
+   }  
+      /**
+       * @return surfaceToVolumeRatio.
+       */
+   public double surfaceToVolumeRatio()
+   {
+      double surfaceToVolumeRatio = surfaceArea() / volume();
+       
+      return surfaceToVolumeRatio;
+   }
+       /**
+        * @return ouput
+        */
+   public String toString()
+   {
+      DecimalFormat dFmt = new DecimalFormat("#,##0.0##");
+      String output = "Dodecahedron " + "\"" + label + "\""
+         + " is " + "\"" + color + "\"" + " with 30 edges of length " 
+         + edge + " units.\n\t" + "surface area = " + dFmt.format(surfaceArea())
+         + " square units\n\t" + "volume = " + dFmt.format(volume())
+         + " cubic units\n\t" + "surface/volume ratio = "
+         + dFmt.format(surfaceToVolumeRatio());
+      return output;
+   }
+}    
+         
+   
+   
+  
+      
+
+  
+       
+     
