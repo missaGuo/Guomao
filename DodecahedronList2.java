@@ -6,9 +6,9 @@ import java.util.Scanner;
 /**
  * A program to creat dodecahedron object and store them.
  * 
- * Project 5
+ * Project 7
  * @author Tao Guo
- * @version 2/22/2017
+ * @version 3/27/2017
  */
 public class DodecahedronList2 {
    private String listName;   
@@ -83,9 +83,7 @@ public class DodecahedronList2 {
       
       return dL;
    }
-   
-   
-          
+       
      /**   
       * @param colorIn Length of color.
       * @param labelIn Length of label.
@@ -112,11 +110,7 @@ public class DodecahedronList2 {
       }
       return result;
    }
-
-      
-      
-      
-      
+ 
       
       /** 
        * @return dList if it greater than 0, otherwise null.
@@ -141,22 +135,7 @@ public class DodecahedronList2 {
        
        
    }
-    
-    /**
-     * @return numberOfDodecahedrons.
-     */
-   
-   public int numberOfDodecahedrons()
-   {
-      return numberOfDodecahedrons;
-   }
-
-   
-   
-   
-   
-   
-   
+          
      /**
       * @param labelIn to get label.
       * @param colorIn to set color.
@@ -176,17 +155,7 @@ public class DodecahedronList2 {
       }
       return false;
    }
-   
-         
- 
- 
-
-
-
-
-
-
-
+      
       /** 
        * @return area.
        */
@@ -229,10 +198,6 @@ public class DodecahedronList2 {
       
       return avgArea;
       
-      
-      
-      
-      
    }
       
      /**
@@ -247,10 +212,6 @@ public class DodecahedronList2 {
       }
       
       return avgVolume;
-      
-      
-      
-      
       
       
    }
@@ -284,14 +245,69 @@ public class DodecahedronList2 {
       }
          
       return avgSurfaceToVolumeRatio;
-        
-      
-      
-      
-      
+       
    }
-      
-    
+   /**
+    * @return dList[i].
+    */
+   public Dodecahedron findDodecahedronWithShortestEdge() {
+      if (numberOfDodecahedrons <= 0) {
+         return null;
+      }
+      int i = 0;
+      for (int j = 0; j < numberOfDodecahedrons; j++) {
+         if (dList[j].getEdge() <= dList[i].getEdge()) {
+            i = j;
+         }
+      }
+      return dList[i];
+   }
+    /**
+     * @return dList[i].
+     */
+   public Dodecahedron findDodecahedronWithLongestEdge() {
+      if (numberOfDodecahedrons <= 0) {
+         return null;
+      }
+      int i = 0;
+      for (int j = 0; j < numberOfDodecahedrons; j++) {
+         if (dList[j].volume() > dList[i].volume()) {
+            i = j;
+         }
+      }
+      return dList[i];
+   }     
+     /**
+      * @return dList[i].
+      */   
+   public Dodecahedron findDodecahedronWithSmallestVolume() {
+      if (numberOfDodecahedrons <= 0) {
+         return null;
+      }
+      int i = 0;
+      for (int j = 0; j < numberOfDodecahedrons; j++) {
+         if (dList[j].volume() <= dList[i].volume()) {
+            i = j;
+         }
+      }
+      return dList[i];
+   }     
+    /**
+     * @return dList[i].
+     */   
+   public Dodecahedron findDodecahedronWithLargestVolume() {
+      if (numberOfDodecahedrons <= 0) {
+         return null;
+      }
+      int i = 0;
+      for (int j = 0; j < numberOfDodecahedrons; j++) {
+         if (dList[j].volume() > dList[i].volume()) {
+            i = j;
+         }
+      }
+      return dList[i];
+   }     
+
              
       /**
        * @return result.
@@ -306,6 +322,7 @@ public class DodecahedronList2 {
       }   
       return result;
    }
+   
    
       /**
        * @return result.
