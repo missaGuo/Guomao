@@ -1,0 +1,28 @@
+ /**
+ * A acitivty to show information of book.
+ * 
+ * Activity 9
+ * @author Tao Guo
+ * @version 4/3/2017
+ */
+
+public class OnlineArticle extends OnlineTextItem {
+   private int wordCount = 0;
+    /**
+    * @param nameIn to name.
+    * @param priceIn to price.
+    */ 
+
+   public OnlineArticle(String nameIn, double priceIn) {
+      super(nameIn, priceIn);
+       
+   }
+    /**
+     * @param wordCountIn to wordCount.
+     */
+   public void setWordCount(int wordCountIn) {
+      wordCount = wordCountIn;
+       
+   }
+ 
+}
