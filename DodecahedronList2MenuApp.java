@@ -86,10 +86,10 @@ public class DodecahedronList2MenuApp {
                labelIn = scan.nextLine();
                if (myDList.deleteDodecahedron(labelIn) == null) {
                   myDList.deleteDodecahedron(labelIn);
-                  System.out.println("\t\"" + labelIn + "\" deleted\n");
+                  System.out.println("\t\"" + labelIn + "\" not found\n");
                }
                else {
-                  System.out.println("\t\"" + labelIn + "\" not found\n");
+                  System.out.println("\t\"" + labelIn + "\" deleted\n");
                }
                break;
                
