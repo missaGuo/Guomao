@@ -1,0 +1,26 @@
+ /**
+ * A acitivty to show information of book.
+ * 
+ * Activity 9
+ * @author Tao Guo
+ * @version 4/3/2017
+ */
+
+public abstract class OnlineTextItem extends InventoryItem {
+   /**
+    * @param nameIn to name.
+    * @param priceIn to price.
+    */ 
+   public OnlineTextItem(String nameIn, double priceIn) {
+      super(nameIn, priceIn);
+       
+   }
+    /**
+     * @return price.
+     */
+   public double calculateCost() {
+      return price;
+    
+   }
+    
+}
