@@ -1,0 +1,36 @@
+ /**
+ * A acitivty to show information of book.
+ * 
+ * Activity 9
+ * @author Tao Guo
+ * @version 4/3/2017
+ */
+
+    
+public class ElectronicsItem extends InventoryItem {
+   protected double weight;
+   /**
+     * public.
+     */
+   public static final double SHIPPING_COST = 1.5;
+    /**
+    * @param nameIn to name.
+    * @param priceIn to price.
+    * @param weightIn to weight.
+    */ 
+
+   public ElectronicsItem(String nameIn, double priceIn, double weightIn) {
+      super(nameIn, priceIn);
+      weight = weightIn;
+   }
+   /** 
+    * @return cost.
+    */
+   public double calculateCost() {
+      return super.calculateCost() + (SHIPPING_COST * weight);
+       
+   }
+ 
+ 
+    
+}
