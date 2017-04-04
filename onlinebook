@@ -1,0 +1,37 @@
+ /**
+ * A acitivty to show information of book.
+ * 
+ * Activity 9
+ * @author Tao Guo
+ * @version 4/3/2017
+ */
+
+public class OnlineBook extends OnlineTextItem {
+   protected String author = "Author Not Listed";
+    /**
+    * @param nameIn to name.
+    * @param priceIn to price.
+    */ 
+
+   public OnlineBook(String nameIn, double priceIn) {
+      super(nameIn, priceIn);
+       
+   }
+    
+    /**
+     * @param authorIn to author.
+     */
+   public void setAuthor(String authorIn) {
+      author = authorIn;
+       
+   }
+    /**
+     * @return name.
+     */
+   public String toString() {
+      return name + " - " + author + ": $" + price;
+      
+      
+   }
+  
+}
